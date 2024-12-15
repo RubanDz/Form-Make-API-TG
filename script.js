@@ -1,27 +1,29 @@
 
 
-// https://hook.us2.make.com/ig6ruz116lp7u1ab1khnohafi3w9s6xf  это мой вебхук сценария для отправки данных формы на ваш вебхук. Вот как это работает:
+// https://hook.us2.make.com/ig6ruz116lp7u1ab1khnohafi3w9s6xf 
 
 
 
 document.querySelectorAll(".contact-form").forEach(function(form) {
     form.addEventListener("submit", function(event) {
-      event.preventDefault();  // Предотвращаем стандартную отправку формы.
+      event.preventDefault(); 
   
       const formData = new FormData(event.target);
   
-      // Для каждой формы собираем данные
+     
       const data = {
-        name: formData.get("name"),
-        phone: formData.get("phone"),
-        message: formData.get("message"),
-        email: formData.get("email"), // Добавляем email для формы 3
-        sufit: formData.get("sufit"), // Добавляем тип потолка для формы 2
-        size: formData.get("size"), // Добавляем площадь для формы 2
-        metr: formData.get("metr"), // Добавляем метры для формы 2
-        punkt: formData.get("punkt"), // Добавляем точки освещения для формы 2
-        client_type: formData.get("client-type3"), // Для формы 3 тип клиента
-      };
+        name: formData.get("name") || "",  
+        phone: formData.get("phone") || "", 
+        message: formData.get("message") || "", 
+        email: formData.get("email") || "", 
+        sufit: formData.get("sufit") || "", 
+        size: formData.get("size") || "", 
+        metr: formData.get("metr") || "", 
+        punkt: formData.get("punkt") || "", 
+        client_type: formData.get("client-type3") || "", 
+        client_type_second: formData.get("client-type4") || "", // Kiedy najlepiej się z Tobą skontaktować?
+    };
+    
   
       // URL вашего вебхука
       const webhookUrl = "https://hook.us2.make.com/ig6ruz116lp7u1ab1khnohafi3w9s6xf";
